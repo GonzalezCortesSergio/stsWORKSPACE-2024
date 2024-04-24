@@ -18,6 +18,9 @@ public class PseudoMain {
 	void ejecutar() {
 		
 		repositorio.save(new Alumno("Sergio", "González Cortés", "gonzalez.coser24@triana.salesianos.edu"));
+		repositorio.save(new Alumno("Luis Miguel", "López Magaña", "luismi.lopez@triana.salesianos.edu"));
+		
+		repositorio.findAll().forEach(System.out::println);
 		
 	}
 }

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Productos</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<h1 class="text-center">Lista de clientes</h1>
+	<table class="table table-bordered w-50 mx-auto">
+		<thead class="bg-primary">
+			<tr>
+				<th class="bg-primary">Número</th>
+				<th class="bg-primary">Nombre</th>
+				<th class="bg-primary">Primer Apellido</th>
+				<th class="bg-primary">Segundo Apellido</th>
+				<th class="bg-primary">Género</th>
+			</tr>
+		</thead>
+		<tbody th:remove="all-but-first">
+			<tr th:each="cliente : ${listaClientes}">
+				<td th:text="${clienteStat.count}" class="bg-warning"></td>
+				<td th:text="${cliente.nombre}" class="bg-secondary">Silla roja</td>
+				
+				<td th:text="${cliente.apellido1}" class="bg-warning">$350</td>
+				
+				<td th:text="${cliente.apellido2}" class="bg-secondary">Segundo apellido</td>
+				<td th:switch="${cliente.genero}" class="bg-warning">
+					<img th:case="'masculino'" src="../static/img/male.png" th:src="@{/img/male.png}" alt="Masculino" />
+					<img th:case="'femenino'" src="../static/img/female.png" th:src="@{/img/female.png}" alt="Femenino" />
+					<span th:case="*">Desconocido</span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+
+</html>
