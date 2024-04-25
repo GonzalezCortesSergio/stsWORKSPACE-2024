@@ -33,15 +33,16 @@ public class Curso {
 	@OneToMany(mappedBy = "curso", fetch = FetchType.EAGER)
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
+	@Builder.Default
 	private List<Alumno> listaAlumnos = new ArrayList<Alumno>();
 	
 	//Constructor sin ID
 	
-	public Curso(String nombre, String tutor) {
+/*	public Curso(String nombre, String tutor) {
 		super();
 		this.nombre = nombre;
 		this.tutor = tutor;
 	}
-	
+*/	
 	
 }
