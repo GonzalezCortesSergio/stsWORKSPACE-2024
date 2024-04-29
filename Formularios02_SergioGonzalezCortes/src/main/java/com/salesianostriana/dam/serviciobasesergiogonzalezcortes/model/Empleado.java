@@ -15,10 +15,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@SequenceGenerator(name = "secuenciaEmpleado", sequenceName="empleado_seq", initialValue=101)
 public class Empleado {
 
 	@Id
-	@GeneratedValue(strategy= GenerationType.SEQUENCE, generator="empleado_seq")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="secuenciaEmpleado")
 	private Long id;
 	
 	private String nombre;
