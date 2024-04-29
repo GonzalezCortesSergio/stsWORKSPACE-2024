@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empleados</title>
+	<link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+	 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</head>
+<body>
+	
+	<h1 class="display-1 text-center">Empleados registrados</h1>
+	<div class="container m-3">
+		
+		<table class="table table-bordered w-50 mx-auto">
+			
+			<thead>
+				<tr class="bg-primary">
+					
+					<th>ID</th>
+					<th>Nombre</th>
+					<th>Primer apellido</th>
+					<th>Segundo apellido</th>
+					<th>DNI</th>
+					<th>Género</th>
+					
+				</tr>
+			</thead>
+			
+			<tbody>
+				
+				<tr th:each="empleado : ${empleados}">
+					
+					<td th:text="${empleado.id}" class="bg-warning">ID del empleado</td>
+					<td th:text="${empleado.nombre}" class="bg-primary">Nombre del empleado</td>
+					<td th:text="${empleado.apellido1}" class="bg-warning">Primer apellido del empleado</td>
+					<td th:text="${empleado.apellido2}" class="bg-primary">Segundo apellido del empleado</td>
+					<td th:text="${empleado.dni}" class="bg-warning">DNI del empleado</td>
+					<td th:switch="${empleado.genero}" class="bg-primary">
+						
+						<span th:case="'Male'">Masculino</span>
+						<span th:case="'Female'">Femenino</span>
+						<span th:case="'Agender'">Agénero</span>
+						<span th:case="'Genderqueer'">Genderqueer</span>
+						<span th:case="'Genderfluid'">Género fluido</span>
+						<span th:case="'Non-binary'">No binario</span>
+						<span th:case="'Polygender'">Poligénero</span>
+						<span th:case="'Bigender'">Bigénero</span>
+						<span th:case="*">Desconocido</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+    
+</body>
+</html>

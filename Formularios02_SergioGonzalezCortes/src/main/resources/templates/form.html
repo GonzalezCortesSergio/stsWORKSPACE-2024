@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	</head>
+<body>
+    
+	<div class="container mt-3">
+			<form method="POST" th:action="agregarEmpleado" th:object="${empleadoForm}">
+				
+				<div class="mb-3 mt-3">
+					
+					<label for="nombre" class="form-label">Nombre:</label>
+					<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Su nombre aquí" th:field="*{nombre}" />
+				</div>
+				
+				<div class="mb-3">
+					
+					<label for="apellido1" class="form-label">Primer apellido:</label>
+					<input type="text" class="form-control" id="apellido1" name="apellido1" th:field="*{apellido1}" />
+				</div>
+				
+				<div class="mb-3">
+					
+					<label for="apellido2" class="form-label">Segundo apellido:</label>
+					<input type="text" class="form-control" id="apellido2" name="apellido2" th:field="*{apellido2}" />
+					
+				</div>
+				
+				<div class="mb-3">
+					
+					<label for="dni" class="form-label">DNI:</label>
+					<input type="text" class="form-control" id="dni" name="dni" th:field="*{dni}" />
+					
+				</div>
+				
+				<div class="mb-3">
+					
+					<label for="genero">Género:</label>
+					<select class="form-select" id="genero" name="genero" th:field="*{genero}">
+						
+						<option value="Male">Masculino</option>
+						<option value="Female">Femenino</option>
+						<option value="Agender">Agénero</option>
+						<option value="Genderqueer">Genderqueer</option>
+						<option value="Genderfluid">Género fluído</option>
+						<option value="Non-binary">No binario</option>
+						<option value="Polygender">Poligénero</option>
+						<option value="Bigender">Bigénero</option>
+						
+					</select>
+				</div>
+				
+				<button type="submit" class="btn btn-primary">Submit</button>
+				
+			</form>
+		</div>
+</body>
+</html>
