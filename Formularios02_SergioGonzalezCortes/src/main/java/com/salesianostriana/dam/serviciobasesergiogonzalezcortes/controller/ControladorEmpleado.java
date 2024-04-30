@@ -37,9 +37,8 @@ public class ControladorEmpleado {
 	
 	@PostMapping("/agregarEmpleado")
 	public String submit(@ModelAttribute("empleadoForm") Empleado empleado, Model model) {
-		
-		Empleado e = empleado;
-		servicioEmpleado.save(e);
+
+		servicioEmpleado.save(empleado);
 		
 		model.addAttribute("empleados", servicioEmpleado.findAll());
 		
